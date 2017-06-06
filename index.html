@@ -3,6 +3,8 @@
 	<head>
 		<title>PenCraft</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="description" content="Edit hand-written papers as document files over your electronic devices with PenCraft">
+		<meta name="author" content="Tomoyoshi Yamamoto, PYRAX">
 		<style>
 			body {
 				margin: 0;
@@ -17,18 +19,103 @@
 				text-align: center;
 				padding: 8px;
 				font-size: 20px;
-				box-shadow: 0px 2px 10px #ffffff;
+				box-shadow: 0px 0px 30px #ffffff;
 			}
 			.imgport {
-				background: #000000;
+				background: #4b525a;
 				height: 90vh;
+				color: #ffffff;
+				font-family: sans-serif;
+				text-align: center;
+				font-size: 20px;
+				box-shadow: 0px 2px 10px #4b525a;
+			}
+			#file + label {
+				font-size: 1.25em;
+				font-weight: 700;
+				color: white;
+				display: inline-block;
+			}
+			.fileUpload {
+			    position: relative;
+			    overflow: hidden;
+			    margin: 10px;
+			}
+			.fileUpload input.upload {
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    margin: 0;
+			    padding: 0;
+			    font-size: 20px;
+			    cursor: pointer;
+			    opacity: 0;
+			    filter: alpha(opacity=0);
+			}
+			btn, button {
+				background: rgba(255, 255, 255, 0.56);
+				border: none;
+				padding: 7px;
+				font-size: 20px;
+				min-width: 40px;
+				min-height: 40px;
+				margin-bottom: 10px;
+				color: #252525;
+				border-radius: 2px;
+				margin-left: 10px;
+				outline: none;
+				font-family: sans-serif;
+			}
+			.magbar {
+				background: rgba(75, 82, 90, 0.97);
+				height: 10vh;
+				text-align: center;
+				box-shadow: 0px 2px 10px rgba(75, 82, 90, 0.97);
+			}
+			#noti {
+				position: fixed;
+				top: 0;
+				height: 100vh;
+				width: 100%;
+				background: rgba(75, 82, 90, 0.95);
+				color: #ffffff;
+				font-family: sans-serif;
+				font-weight: lighter;
+				text-align: center;
+			}
+			.seclass {
+				font-size: 30px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="topbar">PenCraft</div>
-		<div class="imgport"></div>
-		<div class="magbar"></div>
+		<div class="imgport">
+			<br><br><br><br><span>Upload Files</span>
+		</div>
+		<div class="magbar">
+			<br>
+			<btn class="fileUpload btn btn-primary">
+				<span>Photo</span>
+				<input id="qwerty" type="file" class="upload" onchange="upd()"/>
+			</btn>
+			<btn class="fileUpload btn btn-primary">
+				<span>Camera</span>
+				<input id="qwerty" type="file" class="upload" onchange="upd()"/>
+			</btn>
+		</div>
+		<div id="noti">
+			<br><br><br>
+			<span class="seclass">PenCraft</span><br><br>
+			<span class="ficlass">You can edit hand-written papers as document files over your electronic devices with PenCraft.</span>
+			<br><br><br><br><br>
+			<button style="color: #ffffff;" onclick="statr()">Get Started</button>
+		</div>
 		<script src=""></script>
+		<script>
+			function statr() {
+				document.getElementById("noti").style.display = "none";
+			}
+		</script>
 	</body>
 </html>
