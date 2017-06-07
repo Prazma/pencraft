@@ -55,7 +55,7 @@
 			    opacity: 0;
 			    filter: alpha(opacity=0);
 			}
-			btn, button {
+			btn, button, .btn {
 				background: #ffffff;
 				border: none;
 				padding: 7px;
@@ -102,16 +102,16 @@
 				<span>アップロード</span>
 				<input id="qwerty" type="file" class="upload" onchange="upd()"/>
 			</btn>
-			<btn class="fileUpload btn btn-primary">
-				<span>カメラ</span>
-				<input id="qwerty" type="file" class="upload" onchange="upd()"/>
-			</btn>
 		</div>
 		<div id="noti">
 			<br><br><br>
 			<span class="seclass">PenCraft</span><br><br>
 			<span class="ficlass">PenCraftを使用して、スマートフォンやコンピュータで手書き文書をファイルとして編集できます</span>
 			<br><br>
+			<select>
+				<option value="jp">日本語</option>
+				<option value="en">English</option>
+			</select>
 			<br><br>
 			<button onclick="statr()">編集する</button>
 		</div>
