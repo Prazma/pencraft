@@ -95,32 +95,57 @@
 	<body>
 		<div class="topbar">Upload</div>
 		<div class="imgport">
-			<br><br><br><br><span>画像がアップロードされていません</span><br>
+			<br><br><br><br><span id="stays">画像がアップロードされていません</span><br>
 		</div>
 		<div class="magbar">
 			<br>
 			<btn class="fileUpload btn btn-primary">
-				<span>アップロード</span>
+				<span id="plodr">アップロード</span>
 				<input id="qwerty" type="file" class="upload" onchange="upd()"/>
 			</btn>
 		</div>
 		<div id="noti">
 			<br><br><br>
 			<span class="seclass">PenCraft</span><br><br>
-			<span class="ficlass">PenCraftを使用して、スマートフォンやコンピュータで手書き文書をファイルとして編集できます</span>
+			<span class="ficlass" id="decr">PenCraftを使用して、スマートフォンやコンピュータで手書き文書をファイルとして編集できます</span>
 			<br><br>
-			<button class="btn" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px; margin-right: 0;">言語：</button><select class="btn" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px; margin-left: 0;">
+			<button class="btn" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px; margin-right: 0;" id="langr">言語：</button><select class="btn" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px; margin-left: 0;" onchange="langch()" id="lanch">
 				<option value="jp">日本語</option>
 				<option value="en">English</option>
 			</select>
 			<br><br>
-			<button onclick="statr()">編集する</button>
+			<button onclick="statr()" id="confr">編集する</button>
 		</div>
-		<script src=""></script>
 		<script>
 			function statr() {
 				document.getElementById("noti").style.display = "none";
+				var lang = document.getElementById("lanch").value;
+				if (lang == "en") {
+					document.getElementById("plodr").innerHTML = "Upload";
+					document.getElementById("stays").innerHTML = "No Image Uploaded";
+				}
+				if (lang == "jp") {
+					document.getElementById("prodr").innerHTML = "アップロード";
+					document.getElementById("stays").innerHTML = "画像がアップロードされていません";
+				}
+			}
+			function langch() {
+				var lang = document.getElementById("lanch").value;
+				document.getElementById("lanhui").innerHTML = lang;
+				if(lang == "en") {
+					document.getElementById("decr").innerHTML = "You can edit your hand-written papers on your phones and computers as document files with PenCraft.";
+					document.getElementById("langr").innerHTML = "Language :";
+					document.getElementById("confr").innerHTML = "Get Started";
+				}
+				if(lang == "jp") {
+					document.getElementById("decr").innerHTML = "PenCraftを使用して、スマートフォンやコンピュータで手書き文書をファイルとして編集できます";
+					document.getElementById("langr").innerHTML = "言語：";
+					document.getElementById("confr").innerHTML = "編集する";
+					document.getElementById("prodr").innerHTML = "アップロード";
+					document.getElementById("stays").innerHTML = "画像がアップロードされていません";
+				}
 			}
 		</script>
+		<span style="display: none;" id="lanhui">en</span>
 	</body>
 </html>
